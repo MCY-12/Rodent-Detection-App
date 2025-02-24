@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "105102375685",
+    "firebase_url": "https://csfypapp6-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "csfypapp6",
+    "storage_bucket": "csfypapp6.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:105102375685:android:abc9b9781ee05d179c156c",
+        "android_client_info": {
+          "package_name": "com.example.csfypapp6"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCkPEzD8hG1cmKbtaWwdZ2ePjWLT8NC0Ow"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
