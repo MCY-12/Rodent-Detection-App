@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">CsFypApp6</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="select_location">Select Location</string>
+    <string-array name="map_locations">
+        <item>Central</item>
+        <item>Hong Kong Island Eastern</item>
+        <item>Hong Kong Island Southern</item>
+        <item>Wan Chai</item>
+        <item>Islands</item>
+        <item>Kowloon City</item>
+        <item>Kwun Tong</item>
+        <item>Mong Kok</item>
+        <item>Sham Shui Po</item>
+        <item>Wong Tai Sin</item>
+        <item>Yau Tsim</item>
+        <item>New Territories North</item>
+        <item>Sai Kung</item>
+        <item>Sha Tin</item>
+        <item>Tai Po</item>
+        <item>Kwai Tsing</item>
+        <item>Tsuen Wan</item>
+        <item>Tuen Mun</item>
+        <item>Yuen Long</item>
+    </string-array>
+</resources>

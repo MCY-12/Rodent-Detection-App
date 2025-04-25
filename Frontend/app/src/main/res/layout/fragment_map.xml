@@ -1,0 +1,207 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <!-- Replace existing info_window with this -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/info_window"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:elevation="8dp"
+        android:visibility="gone"
+        app:cardCornerRadius="8dp"
+        app:cardBackgroundColor="@android:color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Header -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="8dp">
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/purple_500"/>
+
+                <TextView
+                    android:id="@+id/rir_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/title"
+                    android:textSize="16sp"
+                    android:paddingVertical="4dp"
+                    android:paddingHorizontal="8dp"
+                    android:background="@drawable/rir_background"
+                    android:textColor="@android:color/white"/>
+
+                <ImageButton
+                    android:id="@+id/close_button"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_alignParentEnd="true"
+                    android:src="@drawable/close_24px"
+                    android:background="?attr/selectableItemBackgroundBorderless"/>
+            </RelativeLayout>
+
+            <!-- Stats Container -->
+            <LinearLayout
+                android:id="@+id/text_stats"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingVertical="8dp">
+
+                <TextView
+                    android:id="@+id/hourly"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:drawableStart="@drawable/calendar_clock_24px"
+                    android:drawablePadding="8dp"
+                    android:paddingVertical="4dp"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/purple_500"
+                    android:layout_marginVertical="4dp"/>
+
+                <TextView
+                    android:id="@+id/daily"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:drawableStart="@drawable/today_24px"
+                    android:drawablePadding="8dp"
+                    android:paddingVertical="4dp"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/purple_500"
+                    android:layout_marginVertical="4dp"/>
+
+                <TextView
+                    android:id="@+id/weekly"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:drawableStart="@drawable/date_range_24px"
+                    android:drawablePadding="8dp"
+                    android:paddingVertical="4dp"/>
+            </LinearLayout>
+
+            <!-- Chart -->
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/chart"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/warning_badge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="⚠ High Volume of User Reported Sightings!"
+                android:background="@drawable/warning_background"
+                android:visibility="gone"
+                android:layout_below="@id/title"
+                android:layout_marginTop="4dp"
+                android:textColor="@android:color/white"
+                android:textSize="12sp"/>
+
+            <!-- Toggle Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/toggle_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:insetTop="0dp"
+                android:insetBottom="0dp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:textAllCaps="true"
+                android:textColor="@color/purple_500"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+<!--    <LinearLayout-->
+<!--        android:id="@+id/info_window"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="vertical"-->
+<!--        android:background="@android:color/white"-->
+<!--        android:elevation="8dp"-->
+<!--        android:visibility="gone"-->
+<!--        android:layout_margin="16dp">-->
+
+<!--        <Button-->
+<!--            android:id="@+id/close_button"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_gravity="end"-->
+<!--            android:layout_marginTop="2dp"-->
+<!--            android:layout_marginRight="2dp"-->
+<!--            a-->
+<!--            android:text="X"/>-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/title"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_width="wrap_content"/>-->
+<!--        <TextView-->
+<!--            android:id="@+id/rir_value"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_width="wrap_content"/>-->
+
+<!--        &lt;!&ndash; Text Stats Layout &ndash;&gt;-->
+<!--        <LinearLayout-->
+<!--            android:id="@+id/text_stats"-->
+<!--            android:orientation="vertical"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_width="match_parent">-->
+<!--            <TextView-->
+<!--                android:id="@+id/hourly"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_width="wrap_content"/>-->
+<!--            <TextView-->
+<!--                android:id="@+id/daily"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_width="wrap_content"/>-->
+<!--            <TextView-->
+<!--                android:id="@+id/weekly"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_width="wrap_content"/>-->
+<!--        </LinearLayout>-->
+
+<!--        <com.github.mikephil.charting.charts.BarChart-->
+<!--            android:id="@+id/chart"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="200dp"-->
+<!--            android:visibility="gone"/>-->
+
+<!--        <Button-->
+<!--            android:id="@+id/toggle_view"-->
+<!--            android:text="Show Chart"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_width="wrap_content"/>-->
+
+<!--    </LinearLayout>-->
+
+</FrameLayout>
